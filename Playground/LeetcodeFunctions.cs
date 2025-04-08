@@ -1,13 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static int RemovePalindromeSub(string s)
+        {
+            int count = 0;
+            string tempS = s;
+
+            while (!tempS.Equals(string.Empty))
+            {
+                tempS = HelperFunctions.FindAndRemovePalindrome(tempS);
+
+                if (tempS.Equals("Error"))
+                    return 0;
+
+                count++;
+            }
+
+            return count;
+        }
+
+        public static int RemovePalindromeSub_2(string s)
+        {
+            if (s.Equals(string.Empty))
+                return 0;
+
+            if (HelperFunctions.CheckForPalindrome_2(s))
+                return 1;
+            else
+                return 2;
+        }
+
         public static int IncremovableSubarrayCount(int[] nums)
         {
             int count = 0;

@@ -39,5 +39,70 @@ namespace Playground
             }
             return true;
         }
+
+        public static string FindAndRemovePalindrome(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Dictionary<string, int> palindromes = new Dictionary<string, int>();
+
+            for (int i = 0; i < charArray.Length; i++) //starting element
+            {
+                for (int j = 1; j <= charArray.Length - i; j++) //length
+                {
+                    string subString = s.Substring(i, j);
+                    int subCount = CheckForPalindrome(subString);
+
+                    if (!subCount.Equals(0))
+                    {
+                        palindromes.Add($"{i},{j}", subCount);
+                    }
+                }
+            }
+
+            if (!palindromes.Count.Equals(0))
+                return RemoveLargestPalindrome(palindromes, s);
+            else
+                return "Error";
+        }
+
+        public static int CheckForPalindrome(string subString)
+        {
+            if (subString.Equals(string.Empty))
+                return 0;
+
+            char[] charArray = subString.ToCharArray();
+            StringBuilder reverseSubString = new StringBuilder();
+
+            for (int i = charArray.Length - 1; i >= 0; i--) //reverse
+                reverseSubString.Append(charArray[i]);
+
+            if (reverseSubString.Equals(subString))
+                return charArray.Length;
+            else
+                return 0;
+        }
+
+        public static bool CheckForPalindrome_2(string subString)
+        {
+            if (subString.Equals(string.Empty))
+                return false;
+
+            char[] charArray = subString.ToCharArray();
+            StringBuilder reverseSubString = new StringBuilder();
+
+            for (int i = charArray.Length - 1; i >= 0; i--) //reverse
+                reverseSubString.Append(charArray[i]);
+
+            return reverseSubString.Equals(subString);
+        }
+
+        public static string RemoveLargestPalindrome(Dictionary<string, int> palindromes, string s)
+        {
+            if (palindromes.Count.Equals(0) || s.Equals(string.Empty))
+                return s;
+
+            string[] palindromeKey = palindromes.MaxBy(p => p.Value).Key.Split(',');
+            return s.Remove(Int32.Parse(palindromeKey[0]), Int32.Parse(palindromeKey[1]));
+        }
     }
 }

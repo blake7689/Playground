@@ -10,6 +10,96 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void RemovePalindromeSub_EmptyString_ReturnsZero()
+        {
+            //arrange
+            string s = string.Empty;
+
+            //act
+            int result = LeetcodeFunctions.RemovePalindromeSub(s);
+
+            //assert
+            Assert.Equal(0, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_Test1_ReturnsOne()
+        {
+            string s = "ababa";
+            int result = LeetcodeFunctions.RemovePalindromeSub(s);
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_Test2_ReturnsTwo()
+        {
+            string s = "abb";
+            int result = LeetcodeFunctions.RemovePalindromeSub(s);
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_Test3_ReturnsTwo()
+        {
+            string s = "baabb";
+            int result = LeetcodeFunctions.RemovePalindromeSub(s);
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_Test4_ReturnsThree()
+        {
+            string s = "bbaabaaa";
+            int result = LeetcodeFunctions.RemovePalindromeSub(s);
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_2_EmptyString_ReturnsZero()
+        {
+            //arrange
+            string s = string.Empty;
+
+            //act
+            int result = LeetcodeFunctions.RemovePalindromeSub_2(s);
+
+            //assert
+            Assert.Equal(0, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_2_Test1_ReturnsOne()
+        {
+            string s = "ababa";
+            int result = LeetcodeFunctions.RemovePalindromeSub_2(s);
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_2_Test2_ReturnsTwo()
+        {
+            string s = "abb";
+            int result = LeetcodeFunctions.RemovePalindromeSub_2(s);
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_2_Test3_ReturnsTwo()
+        {
+            string s = "baabb";
+            int result = LeetcodeFunctions.RemovePalindromeSub_2(s);
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void RemovePalindromeSub_2_Test4_ReturnsTwo()
+        {
+            string s = "bbaabaaa";
+            int result = LeetcodeFunctions.RemovePalindromeSub_2(s);
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
         public void IncremovableSubarrayCount_Test1_ReturnsTen()
         {
             int[] numArray = [1, 2, 3, 4];
