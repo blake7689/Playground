@@ -12,6 +12,25 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static int CountStudents(int[] students, int[] sandwiches)
+        {
+            Queue<int> studentQueue = new(students);
+            Queue<int> sandwichQueue = new(sandwiches);
+
+            while (HelperFunctions.CheckForAvailableMatches(studentQueue, sandwichQueue))
+            {
+                if (studentQueue.Peek().Equals(sandwichQueue.Peek())) 
+                {
+                    studentQueue.Dequeue();
+                    sandwichQueue.Dequeue();
+                }
+                else
+                    studentQueue.Enqueue(studentQueue.Dequeue());
+            }
+
+            return studentQueue.Count();
+        }
+
         public static int RemovePalindromeSub(string s)
         {
             int count = 0;

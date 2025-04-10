@@ -240,5 +240,51 @@ namespace PlaygroundTests.Playground
             //assert
             Assert.Equal("a", result);
         }
+
+        [Fact]
+        public void CheckForAvailableMatches_EmptyStudentQueue_ReturnsFalse()
+        {
+            //arrange
+            Queue<int> studentQueue = new Queue<int>();
+            Queue<int> sandwichQueue = new Queue<int>();
+
+            //act
+            bool result = HelperFunctions.CheckForAvailableMatches(studentQueue, sandwichQueue);
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void CheckForAvailableMatches_StudentMatchingSandwich_Returnstrue()
+        {
+            //arrange
+            Queue<int> studentQueue = new Queue<int>();
+            studentQueue.Enqueue(1);
+            Queue<int> sandwichQueue = new Queue<int>();
+            sandwichQueue.Enqueue(1);
+
+            //act
+            bool result = HelperFunctions.CheckForAvailableMatches(studentQueue, sandwichQueue);
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void CheckForAvailableMatches_StudentNotMatchingSandwich_Returnstrue()
+        {
+            //arrange
+            Queue<int> studentQueue = new Queue<int>();
+            studentQueue.Enqueue(1);
+            Queue<int> sandwichQueue = new Queue<int>();
+            sandwichQueue.Enqueue(0);
+
+            //act
+            bool result = HelperFunctions.CheckForAvailableMatches(studentQueue, sandwichQueue);
+
+            //assert
+            Assert.False(result);
+        }
     }
 }

@@ -10,6 +10,34 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void CountStudents_Test1_ReturnsZero()
+        {
+            //arrange
+            int[] students = [1, 1, 0, 0];
+            int[] sandwiches = [0, 1, 0, 1];
+
+            //act
+            int result = LeetcodeFunctions.CountStudents(students, sandwiches);
+
+            //assert
+            Assert.Equal(0, result);
+        }
+
+        [Fact]
+        public void CountStudents_Test2_ReturnsThree()
+        {
+            //arrange
+            int[] students = [1, 1, 1, 0, 0, 1];
+            int[] sandwiches = [1, 0, 0, 0, 1, 1];
+
+            //act
+            int result = LeetcodeFunctions.CountStudents(students, sandwiches);
+
+            //assert
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
         public void RemovePalindromeSub_EmptyString_ReturnsZero()
         {
             //arrange

@@ -104,5 +104,13 @@ namespace Playground
             string[] palindromeKey = palindromes.MaxBy(p => p.Value).Key.Split(',');
             return s.Remove(Int32.Parse(palindromeKey[0]), Int32.Parse(palindromeKey[1]));
         }
+
+        public static bool CheckForAvailableMatches(Queue<int> students, Queue<int> sandwiches)
+        {
+            if (!students.TryPeek(out int result))
+                return false;
+
+            return students.Contains(sandwiches.Peek());
+        }
     }
 }
