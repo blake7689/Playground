@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Playground.Algorithms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
@@ -12,6 +13,33 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static bool IsFascinating(int n)
+        {
+            List<int> nums = [];
+            int[] correctNums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            string s = string.Format("{0}{1}{2}", n, n * 3, n * 2);
+
+            foreach (char c in s)
+                nums.Add(int.Parse(c.ToString()));
+
+            return correctNums.SequenceEqual(Sorting.BubbleSort(nums.ToArray()));
+        }
+
+        public static bool IsFascinating_2(int n)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(n).Append(n*2).Append(n*3);
+
+            if (!sb.ToString().Length.Equals(9))
+                return false;
+
+            for (int i = 1; i <= 9; i++)
+                if (!sb.ToString().Contains($"{i}"))
+                    return false;
+
+            return true;
+        }
+
         public static int CountStudents(int[] students, int[] sandwiches)
         {
             Queue<int> studentQueue = new(students);

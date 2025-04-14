@@ -112,5 +112,47 @@ namespace Playground
 
             return students.Contains(sandwiches.Peek());
         }
+
+        public static List<int> MergeLists(List<int> left, List<int> right)
+        {
+            int length = left.Count + right.Count;
+
+            List<int> result = new List<int>(length);
+
+            int leftIndex, rightIndex, resultIndex;
+            leftIndex = rightIndex = resultIndex = 0;
+
+            while ((leftIndex < left.Count) || (rightIndex < right.Count))
+            {
+                if ((leftIndex < left.Count) && (rightIndex < right.Count))
+                {
+                    if (left[leftIndex] <= right[rightIndex])
+                    {
+                        result.Add(left[leftIndex]);
+                        leftIndex++;
+                        resultIndex++;
+                    }
+                    else
+                    {
+                        result.Add(right[rightIndex]);
+                        rightIndex++;
+                        resultIndex++;
+                    }
+                }
+                else if (leftIndex < left.Count)
+                {
+                    result.Add(left[leftIndex]);
+                    leftIndex++;
+                    resultIndex++;
+                }
+                else if (rightIndex < right.Count)
+                {
+                    result.Add(right[rightIndex]);
+                    rightIndex++;
+                    resultIndex++;
+                }
+            }
+            return result;
+        }
     }
 }

@@ -10,6 +10,58 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void IsFascinating_Test1_ReturnsTrue()
+        {
+            //arrange
+            int num = 192;
+
+            //act
+            bool result = LeetcodeFunctions.IsFascinating(num);
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void IsFascinating_Test2_Returnsfalse()
+        {
+            //arrange
+            int num = 100;
+
+            //act
+            bool result = LeetcodeFunctions.IsFascinating(num);
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void IsFascinating_2_Test1_ReturnsTrue()
+        {
+            //arrange
+            int num = 192;
+
+            //act
+            bool result = LeetcodeFunctions.IsFascinating_2(num);
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void IsFascinating_2_Test2_Returnsfalse()
+        {
+            //arrange
+            int num = 100;
+
+            //act
+            bool result = LeetcodeFunctions.IsFascinating_2(num);
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
         public void CountStudents_Test1_ReturnsZero()
         {
             //arrange

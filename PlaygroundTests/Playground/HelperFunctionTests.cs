@@ -1,4 +1,5 @@
 ﻿using Playground;
+using Playground.Algorithms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -285,6 +286,21 @@ namespace PlaygroundTests.Playground
 
             //assert
             Assert.False(result);
+        }
+
+        [Fact]
+        public void MergeLists_OrderedArray_ReturnsSameArray()
+        {
+            //arrange
+            List<int> left = [1];
+            List<int> right = [2];
+            List<int> merged = [1, 2];
+
+            //act
+            List<int> result = HelperFunctions.MergeLists(left, right);
+
+            //assert
+            Assert.Equal(merged, result);
         }
     }
 }
