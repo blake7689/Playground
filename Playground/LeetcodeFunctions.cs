@@ -1,6 +1,7 @@
 ﻿using Playground.Algorithms;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -13,6 +14,43 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static bool LemonadeChange(int[] bills)
+        {
+            int cost = 5;
+            List<int> registerBills = [];
+            Queue<int> billQueue = new Queue<int>(bills);
+
+            while (billQueue.Count > 0)
+            {
+                if (!LemonadeTransaction(ref registerBills, billQueue.Dequeue(), cost))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static bool LemonadeTransaction(ref List<int> registerBills, int bill, int cost)
+        {
+            registerBills.Add(bill);
+            int changeDue = bill - cost;
+
+            if (changeDue == 0) { return true; }
+
+            List<int> validRegisterBills = registerBills.Where(r => r <= changeDue).ToList();
+            validRegisterBills.Sort((a, b) => b.CompareTo(a));
+
+            for (int i = 0; i < validRegisterBills.Count && changeDue > 0; i++)
+            {
+                if (validRegisterBills[i] <= changeDue)
+                {
+                    changeDue -= validRegisterBills[i];
+                    registerBills.Remove(validRegisterBills[i]);
+                }
+            }
+
+            return changeDue == 0;
+        } //LemonadeChange
+
         public static bool IsFascinating(int n)
         {
             List<int> nums = [];

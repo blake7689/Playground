@@ -10,6 +10,73 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void LemonadeChange_Test1_ReturnsTrue()
+        {
+            //arrange
+            int[] nums = [5, 5, 5, 10, 20];
+
+            //act
+            bool result = LeetcodeFunctions.LemonadeChange(nums);
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void LemonadeChange_Test2_ReturnsFalse()
+        {
+            //arrange
+            int[] nums = [5, 5, 10, 10, 20];
+
+            //act
+            bool result = LeetcodeFunctions.LemonadeChange(nums);
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void LemonadeChange_Test3_ReturnsTrue()
+        {
+            //arrange
+            int[] nums = [5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 
+                20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 
+                10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 
+                5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 
+                5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20, 5, 10, 5, 20];
+
+            //act
+            bool result = LeetcodeFunctions.LemonadeChange(nums);
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void LemonadeChange_Test4_ReturnsFalse()
+        {
+            //arrange
+            int[] nums = [5, 5, 5, 10, 5, 5, 10, 20, 20, 20];
+
+            //act
+            bool result = LeetcodeFunctions.LemonadeChange(nums);
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
         public void IsFascinating_Test1_ReturnsTrue()
         {
             //arrange
