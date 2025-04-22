@@ -154,5 +154,37 @@ namespace Playground
             }
             return result;
         }
+
+        public static Dictionary<char, int> GetCharOccurances(string s)
+        {
+            Dictionary<char, int> charOccurances = [];
+            foreach (char c in s)
+            {
+                if (charOccurances.TryGetValue(c, out int value))
+                    charOccurances[c] = ++value;
+                else
+                    charOccurances.Add(c, 1);
+            }
+
+            return charOccurances;
+        }
+
+        public static int GetLongestSubstring(string s, int k, Dictionary<char, int> charOccurances)
+        {
+            foreach (var occurance in charOccurances)
+            {
+                if (occurance.Value < k)
+                {
+                    char c = occurance.Key;
+                    int maxLength = 0;
+
+                    foreach (string substring in s.Split(c))
+                        maxLength = Math.Max(maxLength, LeetcodeFunctions.LongestSubstring(substring, k));
+
+                    return maxLength;
+                }
+            }
+            return s.Length;
+        }
     }
 }

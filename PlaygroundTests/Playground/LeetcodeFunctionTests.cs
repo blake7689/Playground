@@ -10,6 +10,34 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void LongestSubstring_Test1_ReturnsThree()
+        {
+            //arrange
+            string s = "aaabb";
+            int k = 3;
+
+            //act
+            int result = LeetcodeFunctions.LongestSubstring(s, k);
+
+            //assert
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void LongestSubstring_Test2_ReturnsFive()
+        {
+            //arrange
+            string s = "ababbc";
+            int k = 2;
+
+            //act
+            int result = LeetcodeFunctions.LongestSubstring(s, k);
+
+            //assert
+            Assert.Equal(5, result);
+        }
+
+        [Fact]
         public void LemonadeChange_Test1_ReturnsTrue()
         {
             //arrange

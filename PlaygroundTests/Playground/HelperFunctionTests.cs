@@ -302,5 +302,101 @@ namespace PlaygroundTests.Playground
             //assert
             Assert.Equal(merged, result);
         }
+
+        [Fact]
+        public void GetCharOccurances_ValidString_ReturnsCorrectDict()
+        {
+            //arrange
+            string s = "aadbdbcd";
+            Dictionary<char, int> expectedDict = new Dictionary<char, int>
+            {
+                { 'a', 2 },
+                { 'd', 3 },
+                { 'b', 2 },
+                { 'c', 1 },
+            };
+
+            //act
+            Dictionary<char, int> result = HelperFunctions.GetCharOccurances(s);
+
+            //assert
+            Assert.Equal(expectedDict, result);
+        }
+
+        [Fact]
+        public void GetCharOccurances_InvalidString_ReturnsEmptyDict()
+        {
+            //arrange
+            string s = string.Empty;
+
+            //act
+            Dictionary<char, int> result = HelperFunctions.GetCharOccurances(s);
+
+            //assert
+            Assert.Empty(result);
+        }
+
+        [Fact]
+        public void GetLongestSubstring_OneValidOccurance_ReturnsThree()
+        {
+            //arrange
+            string s = "aaadbdbcd";
+            int k = 3;
+            Dictionary<char, int> occurances = new Dictionary<char, int>
+            {
+                { 'a', 3 },
+                { 'd', 3 },
+                { 'b', 2 },
+                { 'c', 1 },
+            };
+
+            //act
+            int result = HelperFunctions.GetLongestSubstring(s, k, occurances);
+
+            //assert
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void GetLongestSubstring_AllValidOccurances_ReturnsFullLength()
+        {
+            //arrange
+            string s = "aaadbdbcd";
+            int k = 1;
+            Dictionary<char, int> occurances = new Dictionary<char, int>
+            {
+                { 'a', 3 },
+                { 'd', 3 },
+                { 'b', 2 },
+                { 'c', 1 },
+            };
+
+            //act
+            int result = HelperFunctions.GetLongestSubstring(s, k, occurances);
+
+            //assert
+            Assert.Equal(9, result);
+        }
+
+        [Fact]
+        public void GetLongestSubstring_NoValidOccurances_ReturnsFullLength()
+        {
+            //arrange
+            string s = "aaadbdbcd";
+            int k = 4;
+            Dictionary<char, int> occurances = new Dictionary<char, int>
+            {
+                { 'a', 3 },
+                { 'd', 3 },
+                { 'b', 2 },
+                { 'c', 1 },
+            };
+
+            //act
+            int result = HelperFunctions.GetLongestSubstring(s, k, occurances);
+
+            //assert
+            Assert.Equal(0, result);
+        }
     }
 }

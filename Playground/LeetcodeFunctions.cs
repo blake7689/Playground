@@ -14,6 +14,18 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static int LongestSubstring(string s, int k)
+        {
+            if (s.Length < k) return 0;
+
+            Dictionary<char, int> charOccurances = HelperFunctions.GetCharOccurances(s);
+
+            if (!charOccurances.Any(c => c.Value >= k))
+                return 0;
+
+            return HelperFunctions.GetLongestSubstring(s, k, charOccurances);
+        }
+
         public static bool LemonadeChange(int[] bills)
         {
             int cost = 5;
