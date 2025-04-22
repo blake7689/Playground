@@ -31,6 +31,11 @@ namespace Playground.Ideas
                 //create folder structure
                 //remove duplicates
                 /////////////////////////////////
+                
+
+                //idea///////////////////////////
+                // - ai image or music sort based on predetermined criteria, example, or prompt.//
+                /////////////////////////////////
             }
         }
     }
