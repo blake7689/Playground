@@ -86,34 +86,26 @@ namespace Playground.Algorithms
 
         public static int[] QuickSort(int[] array, int leftIndex, int rightIndex)
         {
-            var i = leftIndex;
-            var j = rightIndex;
+            var l = leftIndex;
+            var r = rightIndex;
             var pivot = array[leftIndex];
-            while (i <= j)
+            while (l <= r)
             {
-                while (array[i] < pivot)
-                {
-                    i++;
-                }
+                while (array[l] < pivot) { l++; }
+                while (array[r] > pivot) { r--; }
 
-                while (array[j] > pivot)
+                if (l <= r)
                 {
-                    j--;
-                }
-                if (i <= j)
-                {
-                    int temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
-                    i++;
-                    j--;
+                    (array[r], array[l]) = (array[l], array[r]);
+                    l++;
+                    r--;
                 }
             }
 
-            if (leftIndex < j)
-                QuickSort(array, leftIndex, j);
-            if (i < rightIndex)
-                QuickSort(array, i, rightIndex);
+            if (leftIndex < r)
+                QuickSort(array, leftIndex, r);
+            if (l < rightIndex)
+                QuickSort(array, l, rightIndex);
             return array;
         }
     }
