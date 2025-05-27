@@ -14,6 +14,30 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static bool CanTravelTo(bool[,] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn)
+        {
+            try
+            {
+                if (!gameMatrix[fromRow, fromColumn])
+                    return false;
+
+                if (!gameMatrix[toRow, toColumn])
+                    return false;
+
+                if (!HelperFunctions.IsValidMovement(fromRow, fromColumn, toRow, toColumn))
+                    return false;
+
+                if (toColumn == fromColumn + 2)
+                    return gameMatrix[fromRow, fromColumn + 1];
+
+                return true;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+        }
+
         public static int LongestSubstring(string s, int k)
         {
             if (s.Length < k) return 0;

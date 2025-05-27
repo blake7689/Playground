@@ -186,5 +186,16 @@ namespace Playground
             }
             return s.Length;
         }
+
+        public static bool IsValidMovement(int fromRow, int fromColumn, int toRow, int toColumn)
+        {
+            if (toRow < (fromRow - 1) || toRow > (fromRow + 1))
+                return false;
+
+            if (toColumn < (fromColumn - 1) || toColumn > (fromColumn + 2))
+                return false;
+
+            return true;
+        }
     }
 }
