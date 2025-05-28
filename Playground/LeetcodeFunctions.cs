@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,6 +16,13 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static bool RouteExists(int fromRow, int fromColumn, int toRow, int toColumn,
+                                      bool[,] mapMatrix)
+        {
+            bool[,] visited = new bool[mapMatrix.GetLength(0), mapMatrix.GetLength(1)];
+            return HelperFunctions.CheckIfRouteExists(fromRow, fromColumn, toRow, toColumn, mapMatrix, visited);
+        }
+
         public static bool CanTravelTo(bool[,] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn)
         {
             try

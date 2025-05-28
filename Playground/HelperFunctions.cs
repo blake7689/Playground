@@ -197,5 +197,79 @@ namespace Playground
 
             return true;
         }
+
+        public static bool CheckIfRouteExists(int curRow, int curCol, int toRow, int toColumn, bool[,] mapMatrix, bool[,] visited)
+        {
+            try
+            {
+                if (curRow == toRow && curCol == toColumn)
+                    return true;
+
+                if (!mapMatrix[curRow, curCol])
+                    return false;
+
+                if (!mapMatrix[toRow, toColumn])
+                    return false;
+
+                if (visited[curRow, curCol])
+                    return false;
+
+                visited[curRow, curCol] = true;
+
+                List<string> validMovements = GetValidMovements(curRow, curCol, mapMatrix);
+
+                if (validMovements.Count == 0)
+                    return false;
+
+                foreach (string newPositions in validMovements)
+                {
+                    int newRow = int.Parse(newPositions.Split(',')[0]);
+                    int newCol = int.Parse(newPositions.Split(',')[1]);
+
+                    if (CheckIfRouteExists(newRow, newCol, toRow, toColumn, mapMatrix, visited))
+                        return true;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+
+            return false;
+        }
+
+        public static List<string> GetValidMovements(int curRow, int curCol, bool[,] mapMatrix)
+        {
+            List<string> validMovements = new List<string>();
+
+            if (TryMovement(curRow - 1, curCol, mapMatrix)) //down
+                validMovements.Add((curRow - 1) + "," + curCol);
+
+            if (TryMovement(curRow, curCol - 1, mapMatrix)) //left
+                validMovements.Add(curRow + "," + (curCol - 1));
+
+            if (TryMovement(curRow + 1, curCol, mapMatrix)) //up
+                validMovements.Add((curRow + 1) + "," + curCol);
+
+            if (TryMovement(curRow, curCol + 1, mapMatrix)) //right
+                validMovements.Add(curRow + "," + (curCol + 1));
+
+            return validMovements;
+        }
+
+        public static bool TryMovement(int newRow, int newCol, bool[,] mapMatrix)
+        {
+            try
+            {
+                if (mapMatrix[newRow, newCol])
+                    return true;
+                else
+                    return false;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+        }
     }
 }
