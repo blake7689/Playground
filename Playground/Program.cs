@@ -27,5 +27,11 @@ public class Program
         //};
 
         //LeetcodeFunctions.RouteExists(0, 0, 2, 2, mapMatrix);
+
+        //TrainComposition train = new TrainComposition();
+        //train.AttachWagonFromLeft(7);
+        //train.AttachWagonFromLeft(13);
+        //Console.WriteLine(train.DetachWagonFromRight()); // 7 
+        //Console.WriteLine(train.DetachWagonFromLeft()); // 13
     }
 }
