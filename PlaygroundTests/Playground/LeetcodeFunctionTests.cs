@@ -10,6 +10,58 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void AccountBalanceAfterPurchase_Test1_ReturnsNinety()
+        {
+            //arrange
+            int n = 9;
+
+            //act
+            int result = LeetcodeFunctions.AccountBalanceAfterPurchase(n);
+
+            //assert
+            Assert.Equal(90, result);
+        }
+
+        [Fact]
+        public void AccountBalanceAfterPurchase_Test2_ReturnsEightey()
+        {
+            //arrange
+            int n = 15;
+
+            //act
+            int result = LeetcodeFunctions.AccountBalanceAfterPurchase(n);
+
+            //assert
+            Assert.Equal(80, result);
+        }
+
+        [Fact]
+        public void AccountBalanceAfterPurchase_Test3_ReturnsNinety()
+        {
+            //arrange
+            int n = 10;
+
+            //act
+            int result = LeetcodeFunctions.AccountBalanceAfterPurchase(n);
+
+            //assert
+            Assert.Equal(90, result);
+        }
+
+        [Fact]
+        public void AccountBalanceAfterPurchase_Test4_ReturnsNinety()
+        {
+            //arrange
+            int n = 5;
+
+            //act
+            int result = LeetcodeFunctions.AccountBalanceAfterPurchase(n);
+
+            //assert
+            Assert.Equal(90, result);
+        }
+
+        [Fact]
         public void LongestSubstring_Test1_ReturnsThree()
         {
             //arrange

@@ -16,6 +16,12 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static int AccountBalanceAfterPurchase(int purchaseAmount)
+        {
+            int roundedAmount = (int)Math.Round((decimal)purchaseAmount / 10, MidpointRounding.AwayFromZero) * 10;
+            return 100 - roundedAmount;
+        }
+
         public static bool RouteExists(int fromRow, int fromColumn, int toRow, int toColumn,
                                       bool[,] mapMatrix)
         {

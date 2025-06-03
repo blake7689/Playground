@@ -42,6 +42,8 @@ public class Program
         //input.Add('a');
         //input.Add('0');
         //Console.WriteLine(input.GetValue());
+
+        //int result = LeetcodeFunctions.AccountBalanceAfterPurchase(15);
     }
 
     //public class TextInput
@@ -72,4 +74,48 @@ public class Program
     //            text += c;
     //    }
     //}
+
+    //public class AlertService
+    //{
+    //    private readonly AlertDAO storage = new AlertDAO();
+
+    //    public AlertService(IAlertDAO alert)
+    //    {
+    //        this.storage = (AlertDAO)alert;
+    //    }
+
+    //    public Guid RaiseAlert()
+    //    {
+    //        return this.storage.AddAlert(DateTime.Now);
+    //    }
+
+    //    public DateTime GetAlertTime(Guid id)
+    //    {
+    //        return this.storage.GetAlert(id);
+    //    }
+    //}
+
+    //public class AlertDAO : IAlertDAO
+    //{
+    //    private readonly Dictionary<Guid, DateTime> alerts = new Dictionary<Guid, DateTime>();
+
+    //    public Guid AddAlert(DateTime time)
+    //    {
+    //        Guid id = Guid.NewGuid();
+    //        this.alerts.Add(id, time);
+    //        return id;
+    //    }
+
+    //    public DateTime GetAlert(Guid id)
+    //    {
+    //        return this.alerts[id];
+    //    }
+    //}
+
+    //public interface IAlertDAO
+    //{
+    //    Guid AddAlert(DateTime time);
+    //    DateTime GetAlert(Guid id);
+    //}
+
 }
