@@ -10,6 +10,45 @@ namespace PlaygroundTests.Playground
     public class LeetcodeFunctionTests
     {
         [Fact]
+        public void MinElement_Test1_ReturnsOne()
+        {
+            //arrange
+            int[] nums = [10, 12, 13, 14];
+
+            //act
+            int result = LeetcodeFunctions.MinElement(nums);
+
+            //assert
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void MinElement_Test2_ReturnsOne()
+        {
+            //arrange
+            int[] nums = [1, 2, 3, 4];
+
+            //act
+            int result = LeetcodeFunctions.MinElement(nums);
+
+            //assert
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void MinElement_Test3_ReturnsTen()
+        {
+            //arrange
+            int[] nums = [999, 19, 199];
+
+            //act
+            int result = LeetcodeFunctions.MinElement(nums);
+
+            //assert
+            Assert.Equal(10, result);
+        }
+
+        [Fact]
         public void AccountBalanceAfterPurchase_Test1_ReturnsNinety()
         {
             //arrange

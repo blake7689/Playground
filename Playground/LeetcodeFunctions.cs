@@ -16,6 +16,23 @@ namespace Playground
 {
     public class LeetcodeFunctions
     {
+        public static int MinElement(int[] nums)
+        {
+            int[] nums2 = new int[nums.Length];
+            for (int i = 0; i < nums.Length; i++)
+            {
+                string digits = nums[i].ToString();
+                int sum = 0;
+                foreach (char c in digits)
+                {
+                    sum += int.Parse(c.ToString());
+                }
+                nums2[i] = sum;
+            }
+
+            return nums2.Min();
+        }
+
         public static int AccountBalanceAfterPurchase(int purchaseAmount)
         {
             int roundedAmount = (int)Math.Round((decimal)purchaseAmount / 10, MidpointRounding.AwayFromZero) * 10;
